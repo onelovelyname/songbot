@@ -9,13 +9,8 @@ module.exports = function(app, express) {
   app.use(bodyParser.json());
 
 
-  app.use(express.static(__dirname + '/../../client'));
+  app.use(express.static(__dirname + '/../../dist'));
 
-  //app.post('/api/status', appController.processStatus);
-  
-  app.post('/api/status', function(request, response) {
-    response.status(200).send(request.body);
-  });
-
+  app.post('/api/status', appController.processStatus);
 
 };

@@ -1,4 +1,4 @@
-var StatusBar = React.createClass({
+var StatusForm = React.createClass({
 
   handleSubmit: function(event) {
     event.preventDefault();
@@ -16,12 +16,17 @@ var StatusBar = React.createClass({
       dataType: 'json',
       data: data,
       success: function(data) {
+        console.log('data in StatusBar: ', data);
         this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
+
+    React.findDOMNode(this.refs.mood).value = "";
+    React.findDOMNode(this.refs.location).value = "";
+
 
   },
 
@@ -37,7 +42,7 @@ var StatusBar = React.createClass({
 
 });
 
-React.render(
-  <StatusBar url="api/status" />,
-  document.getElementById('status')
-);
+// React.render(
+//   <StatusForm url="api/status" />,
+//   document.getElementById('status')
+// );
