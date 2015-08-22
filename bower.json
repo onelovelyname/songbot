@@ -1,0 +1,27 @@
+{
+  "name": "Songbot",
+  "main": "\"main\": \"index.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/onelovelyname/songbot",
+  "authors": [
+    "Melanie Gin <melaniegin1@gmail.com>"
+  ],
+  "description": "Songbot utilizes the AlchemyAPI and Spotify API to recommend music playlists to users based on sentiment analysis.,",
+  "keywords": [
+    "AlchemyAPI",
+    "Spotify",
+    "music"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "react": "~0.13.3"
+  }
+}
