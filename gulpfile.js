@@ -38,7 +38,7 @@ gulp.task('build', function() {
 gulp.task('replaceHTML', function() {
   gulp.src(path.HTML)
     .pipe(htmlreplace({
-      'js': 'build/' + path.MINIFIED_OUT
+      'js': './build/' + path.MINIFIED_OUT
     }))
     .pipe(gulp.dest(path.DEST));
 
@@ -49,4 +49,4 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', ['watch']);
-gulp.task('production', ['build','replaceHTML']);
+gulp.task('production', ['replaceHTML', 'build']);

@@ -1,7 +1,13 @@
 var StatusForm = React.createClass({
 
+  componentDidMount: function() {
+    console.log("this.props in StatusForm: ", this.props);
+  },
+
   handleSubmit: function(event) {
+    
     event.preventDefault();
+
     var mood = React.findDOMNode(this.refs.mood).value.trim();
     var location = React.findDOMNode(this.refs.location).value.trim();
     
@@ -10,23 +16,12 @@ var StatusForm = React.createClass({
       location: location
     };
 
-    $.ajax({
-      url: this.props.url,
-      type: 'POST',
-      dataType: 'json',
-      data: data,
-      success: function(data) {
-        console.log('data in StatusBar: ', data);
-        this.setState({data: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
+    this.props.sendRequest(data);
 
     React.findDOMNode(this.refs.mood).value = "";
     React.findDOMNode(this.refs.location).value = "";
 
+    return;
 
   },
 
@@ -41,8 +36,3 @@ var StatusForm = React.createClass({
   }
 
 });
-
-// React.render(
-//   <StatusForm url="api/status" />,
-//   document.getElementById('status')
-// );
