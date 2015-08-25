@@ -6,8 +6,8 @@ var SongBar = React.createClass({
 
       <div className="song-bar">
         <h2>Song Bar</h2>
-        <SongPlayer />
-        <SongList />
+        <SongPlayer currentSong={this.props.data[0]} />
+        <SongList data={this.props.data} />
       </div>
 
     );

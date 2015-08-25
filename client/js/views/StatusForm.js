@@ -1,7 +1,6 @@
 var StatusForm = React.createClass({
 
   componentDidMount: function() {
-    console.log("this.props in StatusForm: ", this.props);
   },
 
   handleSubmit: function(event) {

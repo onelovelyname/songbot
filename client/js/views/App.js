@@ -1,5 +1,11 @@
 var App = React.createClass({
 
+  getInitialState: function() {
+    return {
+      data: []
+    };
+  },
+
   sendRequestByApp: function(data) {
 
     $.ajax({
@@ -8,7 +14,6 @@ var App = React.createClass({
       dataType: 'json',
       data: data,
       success: function(data) {
-        console.log('data in App: ', data);
         this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
@@ -21,8 +26,8 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-        <SongBar />
-        <StatusBar sendRequestbyBar={this.sendRequestByApp}/>
+        <SongBar data={this.state.data} />
+        <StatusBar sendRequestbyBar={this.sendRequestByApp} />
       </div>
     );
   }

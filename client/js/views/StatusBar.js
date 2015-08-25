@@ -4,8 +4,7 @@ var StatusBar = React.createClass({
     console.log("this.props in StatusBar: ", this.props);
   },
 
-  pass: function(data) {
-    console.log("data in pass: ", data);
+  passRequestbyBar: function(data) {
     this.props.sendRequestbyBar(data);
   },
 
@@ -13,7 +12,7 @@ var StatusBar = React.createClass({
     return (
       <div>
         <h2>Status Bar</h2>
-        <StatusForm sendRequest={this.pass}/>
+        <StatusForm sendRequest={this.passRequestbyBar}/>
       </div>
     );
   }
